@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jotanunes - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Menu Lateral -->
+<div class="menu-lateral" id="menu-lateral">
+    <div class="logo-container">
+        <img src="imagens/logo-aberta.png" class="logo logo-aberta" id="logo-aberta">
+        <img src="imagens/logo-fechada.png" class="logo logo-fechada" id="logo-fechada">
+    </div>
+  
+    <button id="toggle-menu">
+      <img src="imagens/seta-voltar.png" alt="Voltar" class="seta" id="seta" />
+    </button>
+  
+    <ul class="menu-itens">
+      <li>
+        <a href="#">
+          <img src="imagens/icone-home.png" alt="Página Inicial" class="icone-menu" />
+          <span>Página Inicial</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="imagens/icone-trilha.png" alt="Trilhas" class="icone-menu" />
+          <span>Trilhas</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="imagens/icone-certificados.png" alt="Certificados" class="icone-menu" />
+          <span>Certificados</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="imagens/icone-desafios.png" alt="Desafios" class="icone-menu" />
+          <span>Desafios</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="imagens/icone-loja.png" alt="Loja" class="icone-menu" />
+          <span>Loja</span>
+        </a>
+      </li>
+    </ul>
+  </div>              
+
+  <main class="conteudo">
+    <header>
+        <input type="search" placeholder="Buscar...">
+        <h1>Bem-vindo, João!</h1>
+        <p class="welcome-text">Bem-vindo de volta à sua jornada de capacitação na Jotanunes.</p>
+    </header>
+      
+        <!-- Canto Superior Direito -->
+    <div class="icones-superiores">
+        <div id="notificacao-icon" class="icone">
+        <img src="imagens/notificacao.png" alt="Notificação">
+        </div>
+        <div id="perfil-icon" class="icone">
+        <img src="imagens/perfil.png" alt="Perfil">
+        </div>
+        <div id="infeite-icon" class="icone">
+        <img src="imagens/infeite.png" alt="Infeite">
+        </div>
+    </div>
+    
+<!-- Caixa de Notificação (Esquerda) -->
+<div id="box-notificacao" class="box-notificacao">
+  <div class="box-header">
+      Notificações
+  </div>
+  <ul class="mensagens">
+      <li><span class="ponto-vermelho">•</span> Nova mensagem de sistema</li>
+      <li><span class="ponto-vermelho">•</span> Atualização de perfil disponível</li>
+      <li><span class="ponto-vermelho">•</span> Novo evento agendado</li>
+  </ul>
+  <a href="#" class="link-limpar">Limpar Mensagens</a>
+</div>
+
+<!-- Caixa de Perfil (Direita) -->
+<div id="box-perfil" class="box-perfil">
+  <div class="perfil-header">Perfil</div>
+
+  <div class="foto-perfil">
+      <img src="imagens/icon-perfil.jpg" alt="Foto de Perfil">
+  </div>
+
+  <div class="moedas-e-pontos">
+    <div class="moedas">
+        <img src="imagens/icone-moeda.png" alt="Moeda">
+        1200
+    </div>
+    <div class="pontos">
+        <img src="imagens/icone-ponto.png" alt="Ponto">
+        850
+    </div>
+</div>
+<a href="#" id="abrir-modal-dados" class="perfil-opcao">
+  <img src="imagens/icone-perfil-dados.png" alt="Meus Dados">
+  <span>Meus Dados</span>
+</a>
+<a href="#" id="abrir-modal-senha" class="perfil-opcao">
+      <img src="imagens/icone-perfil-seguranca.png" alt="Segurança">
+      <span>Segurança</span>
+</a>
+  <div class="perfil-opcao">
+      <img src="imagens/icone-perfil-termos.png" alt="Termos e condições">
+      <span>Termos e Condições</span>
+  </div>
+</div>
+
+<!-- Modal Alterar Senha -->
+<div id="modal-alterar-senha" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar-modal" id="fechar-modal-senha">&#8592;</span>
+    <img src="imagens/perfil-seguranca.png" alt="Ícone de Segurança" class="modal-foto">
+    <h2>Segurança</h2>
+    <p>Altere sua senha aqui</p>
+    <div class="dados-usuario">
+      <div class="modal-campo">
+        <label>Senha Atual</label>
+        <div class="senha-container">
+          <input type="password" placeholder="Digite sua senha atual aqui" class="senha-input" />
+          <span class="toggle-senha" onclick="toggleSenha(this)">
+            <img src="imagens/olho-aberto-modal-senha.png" alt="Mostrar Senha" />
+          </span>
+        </div>
+      </div>      
+      <div class="modal-campo">
+        <label>Nova Senha</label>
+        <div class="senha-container">
+          <input type="password" placeholder="Digite sua nova senha aqui" class="senha-input" />
+          <span class="toggle-senha" onclick="toggleSenha(this)">
+            <img src="imagens/olho-aberto-modal-senha.png" alt="Mostrar Senha" />
+          </span>
+        </div>
+      </div>
+      <div class="modal-campo">
+        <label>Confirmar Senha</label>
+        <div class="senha-container">
+          <input type="password" placeholder="Confirme sua senha aqui" class="senha-input" />
+          <span class="toggle-senha" onclick="toggleSenha(this)">
+            <img src="imagens/olho-aberto-modal-senha.png" alt="Mostrar Senha" />
+          </span>
+        </div>
+      </div>      
+      <button class="btn-alterar-senha">Alterar Senha</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Meus Dados -->
+<div id="modal-dados" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar-modal" id="fechar-modal-dados">&#8592;</span>
+    <img src="imagens/perfil-modal.jpg" alt="Foto de perfil" class="modal-foto">
+    <h2>Meus Dados</h2>
+    <div class="dados-usuario">
+      <div class="modal-campo">
+        <label>Nome</label>
+        <input type="text" value="João da Silva" readonly>
+      </div>
+      <div class="modal-campo">
+        <label>Matrícula</label>
+        <input type="text" value="123456" readonly>
+      </div>
+      <div class="modal-campo">
+        <label>Setor</label>
+        <input type="text" value="TI" readonly>
+      </div>
+      <div class="modal-campo">
+        <label>Função</label>
+        <input type="text" value="Desenvolvedor Front-End" readonly>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <section class="painel">
+      <div class="proximos-passos">
+        <h2>Próximos Passos</h2>
+        <div class="passo">
+          <p>Concluir Módulo 3</p>
+          <div class="barra-progresso">
+            <div class="progresso" style="width: 60%;"></div>
+          </div>
+        </div>
+        <div class="passo">
+          <p>Exercícios Pendentes Capítulo 6</p>
+          <div class="barra-progresso">
+            <div class="progresso" style="width: 40%;"></div>
+          </div>
+        </div>
+        <div class="passo">
+          <p>Nível Atual Aprendizado</p>
+          <div class="barra-progresso">
+            <div class="progresso" style="width: 80%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-aprendizes">
+        <h2>Top Aprendizes da Semana</h2>
+        <ul>
+          <li>
+            <div class="perfil">
+              <img src="imagens/rafaela.jpg" alt="Rafaela">
+              <span>Rafaela</span>
+            </div>
+            <div class="pontuacao">
+              950 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+          <li>
+            <div class="perfil">
+              <img src="imagens/pedro.jpg" alt="Pedro">
+              <span>Pedro</span>
+            </div>
+            <div class="pontuacao">
+              870 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+          <li>
+            <div class="perfil">
+              <img src="imagens/fernanda.jpg" alt="Fernanda">
+              <span>Fernanda</span>
+            </div>
+            <div class="pontuacao">
+              790 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+          <li>
+            <div class="perfil">
+              <img src="imagens/claudia.jpg" alt="Cláudia">
+              <span>Cláudia</span>
+            </div>
+            <div class="pontuacao">
+              750 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+          <li>
+            <div class="perfil">
+              <img src="imagens/carlos.jpg" alt="Carlos">
+              <span>Carlos</span>
+            </div>
+            <div class="pontuacao">
+              700 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+          <li>
+            <div class="perfil">
+              <img src="imagens/arthur.jpg" alt="Arthur">
+              <span>Arthur</span>
+            </div>
+            <div class="pontuacao">
+              650 <img src="imagens/estrela.png" alt="estrela">
+            </div>
+          </li>
+        </ul>
+        <button id="ver-ranking">Ver ranking completo</button>
+      </div>
+    </section>
+
+    <footer class="estatisticas">
+      <div class="estatistica-card">
+        <div class="estatistica-conteudo">
+          <span class="numero">7</span>
+          <span class="nome">Certificados</span>
+        </div>
+        <img src="imagens/certificado.png" alt="Certificados">
+      </div>
+
+      <div class="estatistica-card">
+        <div class="estatistica-conteudo">
+          <span class="numero">1.765</span>
+          <span class="nome">Horas de Estudo</span>
+        </div>
+        <img src="imagens/relogio.png" alt="Horas de Estudo">
+      </div>
+
+      <div class="estatistica-card">
+        <div class="estatistica-conteudo">
+          <span class="numero">23</span>
+          <span class="nome">Módulos Finalizados</span>
+        </div>
+        <img src="imagens/modulo.png" alt="Módulos Finalizados">
+      </div>
+
+      <div class="estatistica-card">
+        <div class="estatistica-conteudo">
+          <span class="numero">38</span>
+          <span class="nome">Desafios Concluídos</span>
+        </div>
+        <img src="imagens/desafio.png" alt="Desafios Concluídos">
+      </div>
+
+      <div class="imagens-extra">
+        <img src="imagens/icone-extras.png" alt="Imagem Extra 1">
+      </div>
+    </footer>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

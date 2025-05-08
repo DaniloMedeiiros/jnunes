@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jotanunes</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+        <img src="imagens/logo.png" alt="Logo Jotanunes" class="logo-topo">
+        <img src="imagens/itens-login-1.png" alt="itens login" class="itens-login-1">
+        <img src="imagens/itens-login-2.png" alt="itens login" class="itens-login-2">
+        <img src="imagens/itens-login-3.png" alt="itens login" class="itens-login-3">
+        <img src="imagens/itens-login-4.png" alt="itens login" class="itens-login-4">
+        <img src="imagens/itens-login-5.png" alt="itens login" class="itens-login-5">
+        <img src="imagens/itens-login-6.png" alt="itens login" class="itens-login-6">
+        <img src="imagens/itens-login-7.png" alt="itens login" class="itens-login-7">
+        <img src="imagens/itens-login-8.png" alt="itens login" class="itens-login-8">
+      <h1>Bem-vindo ao Sistema de treinamentos da Jotanunes!</h1>
+      <p class="subtitulo">Treinamento e evolução em um só lugar</p>
+
+      <label for="matricula">Matrícula</label>
+      <input type="email" id="matricula" placeholder="Digite aqui o seu email">
+
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" placeholder="Digite aqui a sua senha">
+
+      <a href="#" class="esqueceu" id="openRecovery">Esqueceu a senha?</a>
+      <button class="button">Entrar</button>
+
+      <p class="footer">Jotanunes Construtora © Todos os Direitos Reservados</p>
+    </div>
+
+    <div class="mascote-wrapper">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+      <div class="circle circle3"></div>
+      <div class="mascote-container">
+        <img src="imagens/mascote.png" alt="Mascote">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de recuperação de senha -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+
+      <!-- Tela 1: Digitar E-mail -->
+      <div class="step" id="step1">
+        <img src="imagens/emoji.png" alt="Emoji" class="emoji-icon">
+        <h2>Recuperação de Senha</h2>
+        <p>Para recuperar seu acesso à plataforma novamente, 
+          vamos enviar um código de 4 dígitos para redefinir sua 
+          senha. Digite seu e-mail na qual foi cadastrado.</p>
+        <input type="email" id="recoveryEmail" placeholder="Digite seu email aqui">
+        <span id="emailError" class="error-message"></span>
+        <button id="sendCode">CONTINUE</button>
+      </div>
+
+      <!-- Tela 2: Digitar Código -->
+      <div class="step" id="step2" style="display: none;">
+        <h2>Digite o Código</h2>
+        <p>Insira o código de 4 dígitos enviado para seu e-mail:</p>
+        <input type="text" id="recoveryCode" maxlength="4" placeholder="0000">
+        <button id="verifyCode">CONTINUE</button>
+      </div>
+
+      <!-- Tela 3: Redefinir Senha -->
+      <div class="step" id="step3" style="display: none;">
+        <h2>Nova Senha</h2>
+        <p>Digite sua nova senha:</p>
+        <input type="password" id="newPassword" placeholder="Nova senha">
+        <ul class="password-requirements">
+          <li id="charLength" class="requirement">Mínimo 8 caracteres</li>
+          <li id="oneNumber" class="requirement">Pelo menos 1 número</li>
+          <li id="oneUpper" class="requirement">Pelo menos 1 letra maiúscula</li>
+          <li id="oneLower" class="requirement">Pelo menos 1 letra minúscula</li>
+          <li id="oneSpecial" class="requirement">Pelo menos 1 caractere especial</li>
+        </ul>      
+        <input type="password" id="confirmPassword" placeholder="Confirme a senha">
+        <span id="passwordError" class="error-message"></span>
+        <button id="resetPassword">CONTINUE</button>
+      </div>
+
+      <!-- Tela 4: Confirmação -->
+      <div class="step" id="step4" style="display: none;">
+        <h2>Sucesso!</h2>
+        <p>Sua senha foi redefinida com sucesso.</p>
+        <button id="closeSuccess">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

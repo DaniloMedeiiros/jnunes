@@ -1,0 +1,655 @@
+/* Estilos gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-image: url('imagens/fundo-dashboard.png');
+    background-size: cover; /* A imagem ocupa toda a tela */
+    background-position: center 10%; /* A imagem é centralizada */
+    background-repeat: no-repeat; /* A imagem não se repete */
+    background-attachment: fixed; /* A imagem fica fixa quando você rola a página */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+    overflow-y: auto;   /* Mantém a barra de rolagem vertical */
+}
+
+.menu-lateral {
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9); /* branco translúcido */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 20px 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .menu-lateral.menu-fechado {
+    width: 80px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    transition: opacity 0.3s ease;
+    flex-direction: column;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .menu-lateral.menu-fechado .nome-empresa {
+    display: none;
+  }
+  
+  /* Oculta logo fechada por padrão */
+  .logo {
+    transition: all 0.3s ease;
+  }
+  
+  .logo-aberta {
+    width: 150px;
+    margin-left: -20px;
+    display: block;
+  }
+  
+  .logo-fechada {
+    width: 50px;
+    margin: 0 auto;
+    display: none;
+  }
+  
+  .menu-lateral.menu-fechado .logo-aberta {
+    display: none;
+  }
+  
+  .menu-lateral.menu-fechado .logo-fechada {
+    display: block;
+  }
+  
+  #toggle-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: 30px;
+  }
+  
+  .seta {
+    width: 50px;
+    margin-left: 180px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .menu-lateral.menu-fechado .seta {
+    transform: rotate(180deg);
+    margin-left: 15px; /* ou outro valor menor */
+  }
+  
+  .menu-itens {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .menu-itens li {
+    margin-bottom: 15px;
+  }
+  
+  .menu-itens a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #333;
+    transition: background-color 0.2s;
+  }
+  
+  .menu-itens a:hover {
+    background-color: #fbeaea; /* hover vermelho claro */
+  }
+  
+  .menu-itens .ativo a {
+    background-color: #fbeaea;
+    border-left: 4px solid #e53935;
+    color: #e53935;
+  }
+  
+  .icone-menu {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    transition: margin 0.3s ease;
+  }
+  
+  .menu-lateral.menu-fechado .icone-menu {
+    margin: 0 auto;
+  }
+  
+  .menu-lateral.menu-fechado a span {
+    display: none;
+  }
+  
+  
+
+/* Estilo do header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    margin-left: 280px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+input[type="search"] {
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 25%;
+    margin-bottom: 20px; /* Ajusta o espaçamento entre a barra de busca e o nome */
+}
+
+.welcome-text {
+    font-size: 14px;
+    color: #7d7d7d;
+    margin-top: 5px;
+}
+
+/* Painel com Próximos Passos e Top Aprendizes */
+.painel {
+    display: flex;
+    gap: 140px;
+    margin-top: 20px;
+    margin-left: 550px;
+}
+
+/* Próximos Passos */
+.proximos-passos {
+    width: 300px;
+    background: white;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 270px;
+}
+
+.passo {
+    margin-bottom: 20px;
+}
+
+.barra-progresso {
+    width: 80%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.progresso {
+    height: 100%;
+    background-color: #BC1F1B;
+    border-radius: 5px;
+}
+
+/* Top Aprendizes */
+.top-aprendizes {
+    width: 350px;
+    background: white;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    height: 440px;
+}
+
+.top-aprendizes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-aprendizes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.top-aprendizes li:last-child {
+    border-bottom: none;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.perfil img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pontuacao {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.pontuacao img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Botão Ranking */
+#ver-ranking {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #BC1F1B;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#ver-ranking:hover {
+    background-color: #a61916;
+}
+
+/* Estatísticas */
+.estatisticas {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 20px; /* espaço entre os cards */
+    margin-left: 400px;
+    padding-bottom: 40px; /* Adicionando mais espaço na parte de baixo das estatísticas */
+}
+
+.estatistica-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 250px;
+}
+
+.estatisticas > .estatistica-card:nth-child(2) {
+    margin-left: -250px; /* Move o primeiro card da direita */
+}
+
+.estatisticas > .estatistica-card:nth-child(4) {
+    margin-left: -250px; /* Move o segundo card da direita */
+}
+
+.estatistica-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.numero {
+    font-size: 32px;
+    font-weight: bold;
+    color: #BC1F1B;
+}
+
+.nome {
+    font-size: 16px;
+    color: #7d7d7d;
+}
+
+.imagens-extra {
+    display: flex;
+    position: absolute;
+    top: 100%; /* Ajuste a posição vertical */
+    right: 300px; /* Fixa as imagens à direita */
+    transform: translateY(-50%); /* Centraliza as imagens verticalmente em relação ao painel */
+}
+
+.imagens-extra img {
+    width: 300px;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+
+/* Ícones no canto superior direito */
+.icones-superiores {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    display: flex;
+    gap: 15px;
+}
+
+.icone img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+/* Caixa de Notificação (Esquerda) */
+.box-notificacao {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 210px;
+    background: white;
+    padding: 20px;
+    width: 230px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+/* Gradiente no topo da caixa de notificação */
+.box-notificacao .box-header {
+    background: linear-gradient(90deg, #e53935, #bc1f1b); /* Gradiente vermelho */
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Lista de mensagens com pontinhos vermelhos */
+.mensagens {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.mensagens li {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.ponto-vermelho {
+    color: #e53935;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Link para limpar mensagens em vermelho claro */
+.link-limpar {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #e53935;
+    text-decoration: none;
+}
+
+.link-limpar:hover {
+    text-decoration: underline;
+}
+
+/* Caixa de Perfil (Direita) */
+.box-perfil {
+    display: none;
+    position: absolute;
+    top: 110px;
+    right: 110px;
+    background: white;
+    padding: 20px;
+    width: 230px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+/* Gradiente no topo da caixa de perfil */
+.box-perfil .perfil-header {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradiente rosa/laranja */
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Moedas e pontos em destaque no topo */
+.moedas-e-pontos {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* você pode ajustar esse valor */
+    margin-bottom: 15px;
+}
+
+.moedas, .pontos {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.moedas {
+    color: #E9B151; /* Cor dourada para as moedas */
+}
+
+.pontos {
+    color: #3ECAEB; /* Cor verde para os pontos */
+}
+
+/* Ícones ao lado de cada opção */
+.perfil-opcao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.perfil-opcao img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.foto-perfil {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.foto-perfil img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.moedas img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.pontos img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Modal geral */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-conteudo {
+    background: white;
+    border-radius: 12px;
+    padding: 40px; /* Reduzido para dar mais espaço vertical */
+    width: 600px; /* Mantido */
+    max-height: 80vh; /* Limita a altura do modal */
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+    position: relative;
+    text-align: center;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.dados-usuario {
+    text-align: left;
+    margin-top: 20px; /* Espaço acima dos dados */
+}
+
+.modal-campo {
+    width: 300px;
+    margin: 0 auto 15px auto;
+    text-align: left;
+  }
+
+.modal-campo label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.modal-campo input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Campos de dados */
+.perfil-opcao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    text-decoration: none;       /* Remove sublinhado do <a> */
+    color: inherit;              /* Mantém a cor do texto padrão */
+    cursor: pointer;             /* Mostra o cursor de clique */
+    transition: background 0.2s; /* Suaviza o hover */
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.perfil-opcao:hover {
+    background-color: #f0f0f0;   /* Destaque leve ao passar o mouse */
+}
+
+.perfil-opcao img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.btn-alterar-senha {
+    width: 300px;       /* mesma largura dos inputs */
+    margin: 40px auto 0 auto; /* centraliza horizontalmente */
+    display: block;     /* para margin auto funcionar */
+    padding: 12px;
+    margin-left: 150px;
+    border-radius: 12px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box; /* garante alinhamento pelo box model */
+}
+
+.btn-alterar-senha:hover {
+    background-color: darkred; /* Cor ao passar o mouse */
+}
+
+/* Inputs com readonly (não editáveis) */
+.modal-campo input[readonly] {
+    pointer-events: none;
+    cursor: default;
+    background-color: #f5f5f5;
+}
+
+/* Inputs normais para digitar */
+.modal-campo input:not([readonly]) {
+    pointer-events: auto;
+    cursor: text;
+    background-color: white; /* ou sua cor preferida */
+}
+
+.senha-container {
+    position: relative;
+    width: 100%; /* importante para ocupar todo o espaço do modal-campo */
+  }
+  .senha-container input {
+    padding-right: 40px;
+    box-sizing: border-box;
+    width: 100%;  
+  }
+  /* Posiciona o ícone fora da área do input, mas à direita */
+  .toggle-senha {
+    position: absolute;
+    right: -30px; /* desloca o ícone para fora do input */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ajuste do tamanho do ícone */
+  .toggle-senha img {
+    width: 20px;
+    height: 20px;
+  }
+  
