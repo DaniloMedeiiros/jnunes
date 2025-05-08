@@ -652,4 +652,31 @@ input[type="search"] {
     width: 20px;
     height: 20px;
   }
+<<<<<<< HEAD
+=======
+
+  /* Estilo específico para o modal de Termos e Condições, se necessário */
+#modal-termos .modal-foto img {
+    width: 80px; /* Ajuste conforme necessário */
+    height: 80px; /* Ajuste conforme necessário */
+}
+
+.modal-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+.modal-foto {
+    margin-bottom: 10px; /* Espaçamento abaixo do ícone */
+}
+
+.termos-texto p {
+    margin: 0; /* Remove margens padrão */
+    padding: 0 20px; /* Adiciona um pouco de padding lateral, se necessário */
+    font-size: 20px;
+}
+
+>>>>>>> 7e47562 (Adicionado Trilha)
   

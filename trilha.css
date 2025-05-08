@@ -1,0 +1,457 @@
+/* Estilos gerais para a página trilha */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  background-image: url('imagens/fundo-dashboard.png');
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#trilha-menu-lateral {
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+#trilha-menu-lateral.trilha-menu-fechado {
+  width: 80px;
+}
+
+#trilha-logo-aberta {
+  width: 150px;
+  margin-left: 40px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+#trilha-logo-fechada {
+  width: 50px;
+  margin: 0 auto;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#trilha-menu-lateral.trilha-menu-fechado #trilha-logo-aberta {
+  display: none;
+}
+
+#trilha-menu-lateral.trilha-menu-fechado #trilha-logo-fechada {
+  display: block;
+}
+
+#trilha-toggle-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-bottom: 30px;
+}
+
+#trilha-seta {
+  width: 50px;
+  margin-left: 180px;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  position: relative;
+}
+
+#trilha-menu-lateral.trilha-menu-fechado #trilha-seta {
+  transform: rotate(180deg);
+  margin-left: 15px;
+}
+
+#trilha-menu-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+#trilha-menu-itens li {
+  margin-bottom: 15px;
+}
+
+#trilha-menu-itens a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+#trilha-menu-itens a:hover {
+  background-color: #fbeaea;
+}
+
+#trilha-menu-itens .ativo a {
+  background-color: #fbeaea;
+  border-left: 4px solid #e53935;
+  color: #e53935;
+}
+
+.icone-menu {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: margin 0.3s ease;
+}
+
+#trilha-menu-lateral.trilha-menu-fechado .icone-menu {
+  margin: 0 auto;
+}
+
+#trilha-menu-lateral.trilha-menu-fechado a span {
+  display: none;
+}
+
+/* Estilo do header */
+#trilha-conteudo header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  width: 100%;
+  margin-left: 280px;
+}
+
+#trilha-buscar {
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+/* Ícones no canto superior direito */
+#trilha-icones-superiores {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  display: flex;
+  gap: 15px;
+}
+
+#trilha-icones-superiores .icone img {
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+/* Caixa de Notificação (Esquerda) */
+#trilha-box-notificacao {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 210px;
+  background: white;
+  padding: 20px;
+  width: 230px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+#trilha-box-notificacao .box-header {
+  background: linear-gradient(90deg, #e53935, #bc1f1b);
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#trilha-box-notificacao .link-limpar {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #e53935;
+  text-decoration: none;
+}
+
+#trilha-box-notificacao .link-limpar:hover {
+  text-decoration: underline;
+}
+
+#trilha-box-perfil {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 110px;
+  background: white;
+  padding: 20px;
+  width: 230px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+#trilha-box-perfil .perfil-header {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#trilha-box-perfil .moedas-e-pontos {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 15px;
+}
+
+#trilha-box-perfil .moedas,
+#trilha-box-perfil .pontos {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#trilha-box-perfil .moedas {
+  color: #e9b151;
+}
+
+#trilha-box-perfil .pontos {
+  color: #3ecaeb;
+}
+
+#trilha-box-perfil .perfil-opcao {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+#trilha-box-perfil .perfil-opcao img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+#trilha-box-perfil .foto-perfil {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+#trilha-box-perfil .foto-perfil img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-alterar-senha {
+  width: 300px;
+  margin: 40px auto 0 auto;
+  display: block;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-alterar-senha:hover {
+  background-color: darkred;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal-conteudo {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+#trilha-conteudo .dados-usuario {
+  text-align: left;
+  margin-top: 20px;
+}
+
+#trilha-conteudo .modal-campo {
+  width: 300px;
+  margin: 0 auto 15px auto;
+  text-align: left;
+}
+
+#trilha-conteudo .modal-campo label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}
+
+#trilha-conteudo .modal-campo input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  pointer-events: auto;
+  cursor: text;
+}
+
+#trilha-conteudo .perfil-opcao {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+#trilha-conteudo .perfil-opcao:hover {
+  background-color: #f0f0f0;
+}
+
+#trilha-conteudo .perfil-opcao img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.senha-container input {
+  padding-right: 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.toggle-senha {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-senha img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Específico para modal termos */
+#trilha-modal-termos .modal-foto img {
+  width: 80px;
+  height: 80px;
+}
+
+#trilha-conteudo .modal-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#trilha-conteudo .modal-foto {
+  margin-bottom: 10px;
+}
+
+#trilha-conteudo .termos-texto p {
+  margin: 0;
+  padding: 0 20px;
+  font-size: 20px;
+}
+
+.trilhas-container {
+    margin: 20px;
+}
+
+/* Carrossel */
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-left: 320px;
+}
+
+.card {
+    min-width: 200px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+    scroll-snap-align: start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #ff0000;
+}

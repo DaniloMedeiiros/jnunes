@@ -1,18 +1,12 @@
 // Aguarda o carregamento completo do DOM antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
-    // Botão "Ver Ranking"
-    document.getElementById('ver-ranking').addEventListener('click', () => {
-        alert('Redirecionando para o ranking completo!');
-        // window.location.href = 'ranking.html';
-    });
-
     // Referências aos elementos
-    const notificacaoIcon = document.getElementById('notificacao-icon');
-    const perfilIcon = document.getElementById('perfil-icon');
-    const notificacaoBox = document.getElementById('box-notificacao');
-    const perfilBox = document.getElementById('box-perfil');
-    const closeNotificacao = document.getElementById('close-notificacao');
-    const closePerfil = document.getElementById('close-perfil');
+    const notificacaoIcon = document.getElementById('trilha-notificacao-icon');
+    const perfilIcon = document.getElementById('trilha-perfil-icon');
+    const notificacaoBox = document.getElementById('trilha-box-notificacao');
+    const perfilBox = document.getElementById('trilha-box-perfil');
+    const closeNotificacao = document.getElementById('trilha-close-notificacao');
+    const closePerfil = document.getElementById('trilha-close-perfil');
 
     // Função para fechar todas as caixas
     function fecharTodasCaixas() {
@@ -59,25 +53,25 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (event) => {
         if (
             !event.target.closest('.icone') &&
-            !event.target.closest('.box-notificacao') &&
-            !event.target.closest('.box-perfil')
+            !event.target.closest('#trilha-box-notificacao') &&
+            !event.target.closest('#trilha-box-perfil')
         ) {
             fecharTodasCaixas();
         }
     });
 
     // Menu lateral toggle
-    const toggleMenuButton = document.getElementById('toggle-menu');
-    const menuLateral = document.querySelector('.menu-lateral');
+    const toggleMenuButton = document.getElementById('trilha-toggle-menu');
+    const menuLateral = document.getElementById('trilha-menu-lateral');
 
     toggleMenuButton.addEventListener('click', () => {
-        menuLateral.classList.toggle('menu-fechado');
+        menuLateral.classList.toggle('trilha-menu-fechado');
     });
 
     // Modal Meus Dados
-    const modalDados = document.getElementById('modal-dados');
-    const abrirModalDados = document.getElementById('abrir-modal-dados');
-    const fecharModalDados = document.getElementById('fechar-modal-dados');
+    const modalDados = document.getElementById('trilha-modal-dados');
+    const abrirModalDados = document.getElementById('trilha-abrir-modal-dados');
+    const fecharModalDados = document.getElementById('trilha-fechar-modal-dados');
 
     abrirModalDados.addEventListener('click', (e) => {
         e.preventDefault();
@@ -96,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Modal Alterar Senha
-    const modalAlterarSenha = document.getElementById('modal-alterar-senha');
-    const abrirModalSenha = document.getElementById('abrir-modal-senha');
-    const fecharModalSenha = document.getElementById('fechar-modal-senha');
+    const modalAlterarSenha = document.getElementById('trilha-modal-alterar-senha');
+    const abrirModalSenha = document.getElementById('trilha-abrir-modal-senha');
+    const fecharModalSenha = document.getElementById('trilha-fechar-modal-senha');
 
     abrirModalSenha.addEventListener('click', (e) => {
         e.preventDefault();
@@ -115,6 +109,27 @@ document.addEventListener('DOMContentLoaded', () => {
             modalAlterarSenha.style.display = 'none';
         }
     });
+
+    // Modal Termos e Condições
+    const modalTermos = document.getElementById('trilha-modal-termos');
+    const abrirModalTermos = document.getElementById('trilha-abrir-modal-termos');
+    const fecharModalTermos = document.getElementById('trilha-fechar-modal-termos');
+
+    abrirModalTermos.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalTermos.style.display = 'flex';
+        perfilBox.style.display = 'none';
+    });
+
+    fecharModalTermos.addEventListener('click', () => {
+        modalTermos.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modalTermos) {
+            modalTermos.style.display = 'none';
+        }
+    });
 });
 
 // Função toggleSenha no escopo global
@@ -127,29 +142,26 @@ function toggleSenha(element) {
         input.type = "password"; // esconde a senha
         element.innerHTML = '<img src="imagens/olho-aberto-modal-senha.png" alt="Mostrar Senha">';
     }
-<<<<<<< HEAD
-}
-=======
 }
 
-// Modal Termos e Condições
-const modalTermos = document.getElementById('modal-termos');
-const abrirModalTermos = document.getElementById('abrir-modal-termos'); // Você precisará adicionar um botão ou link para abrir este modal
-const fecharModalTermos = document.getElementById('fechar-modal-termos');
+// Carrossel
+const carrossel = document.querySelector('.carrossel');
 
-abrirModalTermos.addEventListener('click', (e) => {
-    e.preventDefault();
-    modalTermos.style.display = 'flex';
-    perfilBox.style.display = 'none'; // Fecha a caixa de perfil se estiver aberta
-});
+function scrollLeft() {
+    carrossel.scrollBy({ left: -200, behavior: 'smooth' });
+}
 
-fecharModalTermos.addEventListener('click', () => {
-    modalTermos.style.display = 'none';
-});
+function scrollRight() {
+    carrossel.scrollBy({ left: 200, behavior: 'smooth' });
+}
 
-window.addEventListener('click', (event) => {
-    if (event.target === modalTermos) {
-        modalTermos.style.display = 'none';
-    }
-});
->>>>>>> 7e47562 (Adicionado Trilha)
+// Você pode adicionar botões para rolar
+const leftButton = document.createElement('button');
+leftButton.textContent = '←';
+leftButton.onclick = scrollLeft;
+const rightButton = document.createElement('button');
+rightButton.textContent = '→';
+rightButton.onclick = scrollRight;
+
+document.querySelector('.trilhas-container').appendChild(leftButton);
+document.querySelector('.trilhas-container').appendChild(rightButton);

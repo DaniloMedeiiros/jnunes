@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jotanunes - Trilha</title>
+  <link rel="stylesheet" href="trilha.css" />
+</head>
+<body>
+  <!-- Menu Lateral -->
+  <div class="menu-lateral" id="trilha-menu-lateral">
+    <div class="logo-container">
+      <img src="imagens/logo-aberta.png" class="logo lista-logo-aberta" id="trilha-logo-aberta" />
+      <img src="imagens/logo-fechada.png" class="logo lista-logo-fechada" id="trilha-logo-fechada" />
+    </div>
+
+    <button id="trilha-toggle-menu">
+      <img src="imagens/seta-voltar.png" alt="Voltar" class="seta" id="trilha-seta" />
+    </button>
+
+    <ul class="menu-itens" id="trilha-menu-itens">
+      <li>
+        <a href="dashboard.html" id="trilha-home-link">
+          <img src="imagens/icone-home.png" alt="Página Inicial" class="icone-menu" />
+          <span>Página Inicial</span>
+        </a>
+      </li>
+      <li>
+        <a href="trilha.html" id="trilha-trilha-link">
+          <img src="imagens/icone-trilha.png" alt="Trilhas" class="icone-menu" />
+          <span>Trilhas</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="trilha-certificados-link">
+          <img src="imagens/icone-certificados.png" alt="Certificados" class="icone-menu" />
+          <span>Certificados</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="trilha-desafios-link">
+          <img src="imagens/icone-desafios.png" alt="Desafios" class="icone-menu" />
+          <span>Desafios</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" id="trilha-loja-link">
+          <img src="imagens/icone-loja.png" alt="Loja" class="icone-menu" />
+          <span>Loja</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <main class="conteudo" id="trilha-conteudo">
+    <header>
+      <input type="search" placeholder="Buscar..." id="trilha-buscar" />
+    </header>
+
+    <!-- Canto Superior Direito -->
+    <div class="icones-superiores" id="trilha-icones-superiores">
+      <div id="trilha-notificacao-icon" class="icone">
+        <img src="imagens/notificacao.png" alt="Notificação" />
+      </div>
+      <div id="trilha-perfil-icon" class="icone">
+        <img src="imagens/perfil.png" alt="Perfil" />
+      </div>
+      <div id="trilha-infeite-icon" class="icone">
+        <img src="imagens/infeite.png" alt="Infeite" />
+      </div>
+    </div>
+
+    <!-- Caixa de Notificação (Esquerda) -->
+    <div id="trilha-box-notificacao" class="box-notificacao">
+      <div class="box-header">Notificações</div>
+      <ul class="mensagens">
+        <li> Nova mensagem de sistema</li>
+        <li> Atualização de perfil disponível</li>
+        <li> Novo evento agendado</li>
+      </ul>
+      <a href="#" class="link-limpar">Limpar Mensagens</a>
+    </div>
+
+    <!-- Caixa de Perfil (Direita) -->
+    <div id="trilha-box-perfil" class="box-perfil">
+      <div class="perfil-header">Perfil</div>
+
+      <div class="foto-perfil">
+        <img src="imagens/icon-perfil.jpg" alt="Foto de Perfil" />
+      </div>
+
+      <div class="moedas-e-pontos">
+        <div class="moedas">
+          <img src="imagens/icone-moeda.png" alt="Moeda" /> 1200
+        </div>
+        <div class="pontos">
+          <img src="imagens/icone-ponto.png" alt="Ponto" /> 850
+        </div>
+      </div>
+      <a href="#" id="trilha-abrir-modal-dados" class="perfil-opcao">
+        <img src="imagens/icone-perfil-dados.png" alt="Meus Dados" />
+        <span>Meus Dados</span>
+      </a>
+      <a href="#" id="trilha-abrir-modal-senha" class="perfil-opcao">
+        <img src="imagens/icone-perfil-seguranca.png" alt="Segurança" />
+        <span>Segurança</span>
+      </a>
+      <a href="#" id="trilha-abrir-modal-termos" class="perfil-opcao">
+        <img src="imagens/icone-perfil-termos.png" alt="Termos" />
+        <span>Termos e Condições</span>
+      </a>
+    </div>
+
+    <!-- Modal Alterar Senha -->
+    <div id="trilha-modal-alterar-senha" class="modal">
+      <div class="modal-conteudo">
+        <span class="fechar-modal" id="trilha-fechar-modal-senha">&times;</span>
+        <img
+          src="imagens/perfil-seguranca.png"
+          alt="Ícone de Segurança"
+          class="modal-foto"
+        />
+        <h2>Segurança</h2>
+        <p>Altere sua senha aqui</p>
+        <div class="dados-usuario">
+          <div class="modal-campo">
+            <label>Senha Atual</label>
+            <div class="senha-container">
+              <input
+                type="password"
+                placeholder="Digite sua senha atual aqui"
+                class="senha-input"
+              />
+              <span class="toggle-senha" onclick="toggleSenha(this)">
+                <img
+                  src="imagens/olho-aberto-modal-senha.png"
+                  alt="Mostrar Senha"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="modal-campo">
+            <label>Nova Senha</label>
+            <div class="senha-container">
+              <input
+                type="password"
+                placeholder="Digite sua nova senha aqui"
+                class="senha-input"
+              />
+              <span class="toggle-senha" onclick="toggleSenha(this)">
+                <img
+                  src="imagens/olho-aberto-modal-senha.png"
+                  alt="Mostrar Senha"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="modal-campo">
+            <label>Confirmar Senha</label>
+            <div class="senha-container">
+              <input
+                type="password"
+                placeholder="Confirme sua senha aqui"
+                class="senha-input"
+              />
+              <span class="toggle-senha" onclick="toggleSenha(this)">
+                <img
+                  src="imagens/olho-aberto-modal-senha.png"
+                  alt="Mostrar Senha"
+                />
+              </span>
+            </div>
+          </div>
+          <button class="btn-alterar-senha">Alterar Senha</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Meus Dados -->
+    <div id="trilha-modal-dados" class="modal">
+      <div class="modal-conteudo">
+        <span class="fechar-modal" id="trilha-fechar-modal-dados">&times;</span>
+        <img
+          src="imagens/perfil-modal.jpg"
+          alt="Foto de perfil"
+          class="modal-foto"
+        />
+        <h2>Meus Dados</h2>
+        <div class="dados-usuario">
+          <div class="modal-campo">
+            <label>Nome</label>
+            <input type="text" value="João da Silva" readonly />
+          </div>
+          <div class="modal-campo">
+            <label>Matrícula</label>
+            <input type="text" value="123456" readonly />
+          </div>
+          <div class="modal-campo">
+            <label>Setor</label>
+            <input type="text" value="TI" readonly />
+          </div>
+          <div class="modal-campo">
+            <label>Função</label>
+            <input type="text" value="Desenvolvedor Front-End" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Termos e Condições -->
+    <div id="trilha-modal-termos" class="modal">
+      <div class="modal-conteudo">
+        <span class="fechar-modal" id="trilha-fechar-modal-termos">&times;</span>
+        <div class="modal-foto">
+          <img src="imagens/perfil-modal-termos.png" alt="Termos e Condições" />
+        </div>
+        <h2>Termos e Condições</h2>
+        <div class="termos-texto">
+          <p>
+            1. <strong>Aceitação dos Termos:</strong>
+            <br />
+            1.1. Ao acessar e utilizar a plataforma de treinamento online da Jotanunes,
+            o usuário concorda com estes Termos de Uso. Caso não concorde, deve
+            interromper o uso imediatamente.
+          </p>
+          <p>
+            2. <strong>Cadastro e Conta do Usuário:</strong>
+            <br />
+            2.1. Para utilizar os serviços da plataforma, é necessário criar uma conta,
+            fornecendo informações verdadeiras e atualizadas.
+            <br />
+            2.2. O usuário é responsável pela segurança de suas credenciais de acesso
+            e deve notificar a Jotanunes imediatamente em caso de uso não autorizado
+            de sua conta.
+          </p>
+          <p>
+            3. <strong>Uso da Plataforma:</strong>
+            <br />
+            3.1. A plataforma é destinada exclusivamente a treinamentos oferecidos pela
+            Jotanunes, e o usuário deve utilizá-la de forma ética e legal.
+            <br />
+            3.2. É proibida a reprodução ou compartilhamento.
+          </p>
+        </div>
+      </div>
+    </div>
+
+<!-- Cards das Trilhas-->
+<div class="trilhas-container">
+    <h2>Trilhas em andamento</h2>
+    <div class="carrossel">
+        <div class="card">
+            <h3>Segurança no Canteiro de Obras</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width: 100%;">100%</div>
+            </div>
+            <span class="status" style="color: red;">Segurança</span>
+        </div>
+        <div class="card">
+            <h3>Segurança no Canteiro de Obras</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width: 27%;">27%</div>
+            </div>
+            <span class="status" style="color: orange;">Em andamento</span>
+        </div>
+        <!-- Adicione mais cartões conforme necessário -->
+    </div>
+</div>
+
+  </main>
+  <script src="trilha.js"></script>
+</body>
+</html>
