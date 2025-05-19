@@ -127,9 +127,6 @@ function toggleSenha(element) {
         input.type = "password"; // esconde a senha
         element.innerHTML = '<img src="imagens/olho-aberto-modal-senha.png" alt="Mostrar Senha">';
     }
-<<<<<<< HEAD
-}
-=======
 }
 
 // Modal Termos e Condições
@@ -152,4 +149,3 @@ window.addEventListener('click', (event) => {
         modalTermos.style.display = 'none';
     }
 });
->>>>>>> 7e47562 (Adicionado Trilha)
